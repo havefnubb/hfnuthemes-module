@@ -38,14 +38,14 @@ class themes  {
      */
     function readManifest($theme) {
         $themeInfos = array();
-        $path = jApp::appPath().'/app/themes/'.$theme .'/theme.php';
+        $path = jApp::appPath().'/app/themes/'.$theme .'/theme.json';
         if (file_exists($path)) {
-            include $path;
+            $themeInfos = json_decode(file_get_contents($path), true);
         }
         else {
-            $path = jApp::varPath().'/themes/'.$theme .'/theme.php';
+            $path = jApp::varPath().'/themes/'.$theme .'/theme.json';
             if (file_exists($path)) {
-                include $path;
+                $themeInfos = json_decode(file_get_contents($path), true);
             }
         }
         return $themeInfos;

@@ -53,29 +53,37 @@ These directories should contain a directory for each theme, containing template
 as described into the [Jelix documentation](https://docs.jelix.org/en/manual/application/themes).
 Css and images of templates should be installed into `www/themes/`.
 
-For hfnuthemes, a PHP file `theme.php` should be saved into each theme directory.
+For hfnuthemes, a JSON file `theme.json` should be saved into each theme directory.
 
-It should contain a `$themeInfos` variable like this:
+Example of a content of `theme.json`:
 
-```php
-$themeInfos = array (
-	'name'=>'Default',
-	'createddate'=>'2009-09-01',
-	'label'=>array('en_US'=>'Default Theme',
-				   'fr_FR'=>'Thème Principal'
-				   ),
-	'description'=>array('en_US'=>'Default theme  of HaveFnuBB!',
-						 'fr_FR'=>'Thème Principal de HaveFnuBB! ',
-						),
-	'licence'=>array('url'=>'http://www.gnu.org/licenses/gpl.html',
-					 'description'=>'GNU General Public Licence'
-					 ),
-	'copyright'=>'2008-2011 FoxMaSk',
-	'creator'=>array('name'=>'FoxMaSk','email'=>'foxmask@foxmask.net','active'=>true),
-	'homepageURL'=>'http://www.havefnubb.jelix.org/',
-	'updateURL'=>'',
-	'version'=>'1.0.1'
-);
+```json
+{
+  "name": "Default",
+  "createddate": "2009-09-01",
+  "label": {
+    "en_US": "Default Theme",
+    "fr_FR": "Thème Principal"
+  },
+  "description": {
+    "en_US": "Default theme  of HaveFnuBB!",
+    "fr_FR": "Thème Principal de HaveFnuBB! ",
+  },
+  "licence": {
+    "url": "http://www.gnu.org/licenses/gpl.html",
+    "description": "GNU General Public Licence"
+  },
+  "copyright": "2008-2011 FoxMaSk",
+  "creator": {
+    "name": "FoxMaSk",
+    "email": "foxmask@foxmask.net",
+    "active": true
+  },
+  "homepageURL": "http://www.havefnubb.jelix.org/",
+  "updateURL": "",
+  "version": "1.0.1"
+}
+
 ```
 
 In the web directory of the theme (for example `www/themes/theme_name/`), you 
