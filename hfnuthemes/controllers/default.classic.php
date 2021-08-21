@@ -4,7 +4,7 @@
 * @subpackage hfnuthemes
 * @author    FoxMaSk
 * @contributor Laurent Jouanneau
-* @copyright 2008-2011 FoxMaSk, 2019 Laurent Jouanneau
+* @copyright 2008-2011 FoxMaSk, 2019-2021 Laurent Jouanneau
 * @link      https://havefnubb.jelix.org
 * @licence  http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public Licence, see LICENCE file
 */
@@ -16,13 +16,14 @@ use Jelix\IniFile\IniModifier;
  */
 class defaultCtrl extends jController {
     /**
-     * @var plugins to manage the behavior of the controller
+     * @var $pluginParams plugins to manage the behavior of the controller
      */
     public $pluginParams = array(
-        '*'	=>	array('auth.required'=>true,
-                          'banuser.check'=>true,
-                    ),
-        '*' => array( 'jacl2.right'=>'hfnu.admin.themes'),
+        '*'	=>	array (
+            'auth.required'=>true,
+            'banuser.check'=>true,
+            'jacl2.right'=>'hfnu.admin.themes'
+        ),
     );
     /**
      * Index that will display all the available theme to be used

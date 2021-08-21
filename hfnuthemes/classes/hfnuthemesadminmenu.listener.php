@@ -4,7 +4,7 @@
 * @subpackage hfnuthemes
 * @author    FoxMaSk
 * @contributor Laurent Jouanneau
-* @copyright 2008-2011 FoxMaSk, 2019 Laurent Jouanneau
+* @copyright 2008-2011 FoxMaSk, 2019-2021 Laurent Jouanneau
 * @link      https://havefnubb.jelix.org
 * @licence  http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public Licence, see LICENCE file
 */
@@ -18,7 +18,6 @@ class hfnuthemesadminmenuListener extends jEventListener{
     * @return void
     */
      function onmasteradminGetMenuContent ($event) {
-       $chemin = jApp::urlBasePath().'hfnu/admin/';
        if ( jAcl2::check('hfnu.admin.themes'))    {
           $event->add(new masterAdminMenuItem('hfnuthemes',jLocale::get('hfnuthemes~theme.themes'), '', 30));
           $item = new masterAdminMenuItem('theme',
@@ -26,7 +25,7 @@ class hfnuthemesadminmenuListener extends jEventListener{
                                                jUrl::get('hfnuthemes~default:index'),
                                                10,
                                                'hfnuthemes');
-          $item->icon = $chemin . 'images/theme.png';
+           $item->icon = \jUrl::get('jelix~www:getfile', array('targetmodule' => 'hfnuthemes', 'file' => 'theme_icon.png'));
           $event->add($item);
        }
 

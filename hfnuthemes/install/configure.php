@@ -29,7 +29,10 @@ class hfnuthemesModuleConfigurator extends \Jelix\Installer\Module\Configurator 
                     'css' => array(
                         '$theme/css/hfnuthemes.css',
                     ),
-                    'require'=> 'jqueryui'
+                    'js' => array(
+                        'hfnuthemes:themes.js'
+                    ),
+                    'require'=> 'jquery_ui'
                 ), 'common', false);
         }
     }
