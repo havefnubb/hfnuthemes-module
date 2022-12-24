@@ -3,12 +3,14 @@
  * @package     hfnuthemes
  * @author      Laurent Jouanneau
  * @contributor
- * @copyright   2019 Laurent Jouanneau
+ * @copyright   2019-2022 Laurent Jouanneau
  * @link      https://havefnubb.jelix.org
  * @license  http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public Licence, see LICENCE file
  */
 
 use Jelix\Installer\Module\API\ConfigurationHelpers;
+use Jelix\Routing\UrlMapping\EntryPointUrlModifier;
+use Jelix\Routing\UrlMapping\MapEntry\MapInclude;
 
 class hfnuthemesModuleConfigurator extends \Jelix\Installer\Module\Configurator {
 
@@ -17,6 +19,18 @@ class hfnuthemesModuleConfigurator extends \Jelix\Installer\Module\Configurator 
         return array(
             'nocopyfiles' => false
         );
+    }
+
+
+    public function declareUrls(EntryPointUrlModifier $registerOnEntryPoint)
+    {
+        $registerOnEntryPoint->havingName(
+            'admin',
+            array(
+                new MapInclude('urls_admin.xml')
+            )
+        )
+        ;
     }
 
     public function configure(ConfigurationHelpers $helpers)

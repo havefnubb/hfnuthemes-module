@@ -31,17 +31,6 @@ to activate the module:
 php install/installer.php
 ```
 
-You should attach url of hfnuthemes to the admin entrypoint of your
-application. Exemple, in your `app/system/urls.xml`:
-
-```xml
-<classicentrypoint name="admin" default="false" noentrypoint="false">
-    ...
-    <url pathinfo="/admin/themes" module="hfnuthemes" include="urls_admin.xml"/>
-    ...
-</classicentrypoint>
-
-```
 
 Providing a theme
 =================
